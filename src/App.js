@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { ThemeProvider } from "@emotion/react";
+import "./App.css";
+import { Navbar } from "./components/navbar/Navbar";
+import { createTheme } from "@mui/material";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; // Fixed import and alias
+
+import { Homepage } from "./pages/home/Home";
+import { Editpage } from "./pages/edit/Edit";
+import { Sortpage } from "./pages/sort/Sort";
+
+const theme = createTheme();
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Homepage />} />
+          <Route path="/edit" element={<Editpage />} />
+          <Route path="/sort" element={<Sortpage />} />
+        </Routes>
+      </Router>
+    </ThemeProvider>
   );
 }
 
