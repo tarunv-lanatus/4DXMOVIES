@@ -23,7 +23,7 @@ export const MovieItem = () => {
           height: "100%",
           backgroundImage: `url(${data.backdrop_image})`,
           backgroundSize: "cover",
-          filter: "blur(2px) brightness(0.2)", // Adjust brightness value as needed
+          filter: "blur(2px) brightness(0.2)",
           zIndex: -1,
         }}
       />
@@ -33,7 +33,6 @@ export const MovieItem = () => {
         </NavLink>
       </div>
       <div style={{ width: "25%", marginTop: "50px", marginLeft: "15px" }}>
-        {/* <img height="100%" src={data.image} alt={data.title} /> */}
         <CardMedia component="img" height="500px" image={data.image} />
       </div>
       <div style={{ width: "70%", margin: "50px" }}>

@@ -38,7 +38,7 @@ export const EditById = () => {
           height: "100%",
           backgroundImage: `url(${changeMovieData.backdrop_image})`,
           backgroundSize: "cover",
-          filter: "blur(2px) brightness(0.4)", // Adjust brightness value as needed
+          filter: "blur(2px) brightness(0.4)",
           zIndex: -1,
         }}
       />
@@ -100,7 +100,6 @@ export const EditById = () => {
         </div>
         <div style={{ marginBottom: "16px" }}>
           <TextField
-            // style={{width:'800px'}}
             label="Release Date"
             type="date"
             value={changeMovieData.release_date}

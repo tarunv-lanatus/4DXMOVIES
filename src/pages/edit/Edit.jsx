@@ -1,21 +1,15 @@
-import {
-  Box,
-  Button,
-  ThemeProvider,
-  createTheme,
-} from "@mui/material";
+import { Box, Button, ThemeProvider, createTheme } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import { Navbar } from "../../components/navbar/Navbar";
 import DeleteIcon from "@mui/icons-material/Delete";
 import SaveIcon from "@mui/icons-material/Save";
 import { useContext } from "react";
 import movieDataContext from "../../context/movieDataContext";
-import img from "../home/home.jpg"
+import img from "../home/home.jpg";
 
 const theme = createTheme();
 
 export const Editpage = () => {
-
   const moviesValue = useContext(movieDataContext);
 
   const columns = [
@@ -101,28 +95,28 @@ export const Editpage = () => {
   });
 
   return (
-    <Box style={{backgroundImage: `url(${img})`, height: '611px'}}>
-    <ThemeProvider theme={theme}>
-      <Navbar />
-      <Box m="50px 298px">
-        <div style={{ height: 400, width: "100%" }}>
-          <DataGrid
-            style={{
-              backgroundColor: "rgb(142, 155, 152)",
-              textAlign: "center",
-            }}
-            rows={rows}
-            columns={columns}
-            initialState={{
-              pagination: {
-                paginationModel: { page: 0, pageSize: 5 },
-              },
-            }}
-            pageSizeOptions={[5, 10]}
-          />
-        </div>
-      </Box>
-    </ThemeProvider>
+    <Box style={{ backgroundImage: `url(${img})`, height: "611px" }}>
+      <ThemeProvider theme={theme}>
+        <Navbar />
+        <Box m="50px 298px">
+          <div style={{ height: 400, width: "100%" }}>
+            <DataGrid
+              style={{
+                backgroundColor: "rgb(142, 155, 152)",
+                textAlign: "center",
+              }}
+              rows={rows}
+              columns={columns}
+              initialState={{
+                pagination: {
+                  paginationModel: { page: 0, pageSize: 5 },
+                },
+              }}
+              pageSizeOptions={[5, 10]}
+            />
+          </div>
+        </Box>
+      </ThemeProvider>
     </Box>
   );
 };
