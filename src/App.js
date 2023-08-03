@@ -1,27 +1,26 @@
-import { ThemeProvider } from "@emotion/react";
 import "./App.css";
-import { Navbar } from "./components/navbar/Navbar";
-import { createTheme } from "@mui/material";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; // Fixed import and alias
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import { Homepage } from "./pages/home/Home";
 import { Editpage } from "./pages/edit/Edit";
-import { Sortpage } from "./pages/sort/Sort";
-
-const theme = createTheme();
+import { MovieItem } from "./pages/movieItem/MovieItem";
+import { EditById } from "./pages/editById/EditById";
+import { MovieData } from "./context/MovieData";
+import { ErrorPage } from "./pages/errorPage/Error";
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
+    <MovieData>
       <Router>
-        <Navbar />
         <Routes>
           <Route path="/" element={<Homepage />} />
+          <Route path="/movies/:movie_id" element={<MovieItem />} />
+          <Route path="/edit/:movie_id" element={<EditById />} />
           <Route path="/edit" element={<Editpage />} />
-          <Route path="/sort" element={<Sortpage />} />
+          <Route path="*" element={<ErrorPage />} />
         </Routes>
       </Router>
-    </ThemeProvider>
+    </MovieData>
   );
 }
 

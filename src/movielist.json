@@ -3,26 +3,32 @@
     {
       "movie_id": 1,
       "title": "The Little Mermaid",
-      "image": "images/mermaid_princess.jpg",
+      "image": "/images/mermaid_princess.jpg",
+      "backdrop_image": "/backdrop_images/mermaid_princess.jpg",
       "release_date": "2023-05-26",
+      "watch_time": "2h 15m",
       "genre": "Adventure, Family, Fantasy, Romance",
       "trailer": "https://www.youtube.com/watch?v=kpGo2_d3oYE",
       "overview": "The youngest of King Triton’s daughters, and the most defiant, Ariel longs to find out more about the world beyond the sea, and while visiting the surface, falls for the dashing Prince Eric. With mermaids forbidden to interact with humans, Ariel makes a deal with the evil sea witch, Ursula, which gives her a chance to experience life on land, but ultimately places her life – and her father’s crown – in jeopardy."
     },
     {
       "movie_id": 2,
-      "title": "Secret Invasion",
-      "image": "images/secret_invasion.jpg",
-      "release_date": "2023-06-21",
-      "genre": "Drama, Sci-Fi & Fantasy, Action & Adventure",
-      "trailer": "https://www.youtube.com/watch?v=Tp_YZNqNBhw",
-      "overview": "Nick Fury and Talos discover a faction of shapeshifting Skrulls who have been infiltrating Earth for years."
+      "title": "Miraculous: Ladybug & Cat Noir, The Movie",
+      "image": "/images/ladybug.jpg",
+      "backdrop_image": "/backdrop_images/ladybug.jpg",
+      "release_date": "2023-07-05",
+      "watch_time": "1h 47m",
+      "genre": "Animation, Family, Action, Fantasy, Romance",
+      "trailer": "https://www.youtube.com/watch?v=3fzFvZToh8o",
+      "overview": "A life of an ordinary Parisian teenager Marinette goes superhuman when she becomes Ladybug. Bestowed with magical powers of creation, Ladybug must unite with her opposite, Cat Noir, to save Paris as a new villain unleashes chaos unto the city."
     },
     {
       "movie_id": 3,
       "title": "Oppenheimer",
-      "image": "images/oppenheimer.jpg",
+      "image": "/images/oppenheimer.jpg",
+      "backdrop_image": "/backdrop_images/oppenheimer.jpg",
       "release_date": "2023-07-21",
+      "watch_time": "3h 1m",
       "genre": "Drama, History",
       "trailer": "https://www.youtube.com/watch?v=uYPbbksJxIg",
       "overview": "The story of J. Robert Oppenheimer’s role in the development of the atomic bomb during World War II."
@@ -30,11 +36,35 @@
     {
       "movie_id": 4,
       "title": "Barbie",
-      "image": "images/barbie.jpg",
+      "image": "/images/barbie.jpg",
+      "backdrop_image": "/backdrop_images/barbie.jpg",
       "release_date": "2023-07-21",
+      "watch_time": "1h 54m",
       "genre": "Comedy, Adventure, Fantasy",
       "trailer": "https://www.youtube.com/watch?v=pBk4NYhWNMM",
       "overview": "Barbie and Ken are having the time of their lives in the colorful and seemingly perfect world of Barbie Land. However, when they get a chance to go to the real world, they soon discover the joys and perils of living among humans."
+    },
+    {
+      "movie_id": 5,
+      "title": "Meg 2: The Trench",
+      "image": "/images/meg2.jpg",
+      "backdrop_image": "/backdrop_images/meg2.jpg",
+      "release_date": "2023-08-04",
+      "watch_time": "1h 56m",
+      "genre": "Action, Science Fiction, Horror, Comedy",
+      "trailer": "https://www.youtube.com/watch?v=wrd-jT7Uv_Y",
+      "overview": "An exploratory dive into the deepest depths of the ocean of a daring research team spirals into chaos when a malevolent mining operation threatens their mission and forces them into a high-stakes battle for survival."
+    },
+    {
+      "movie_id": 6,
+      "title": "Guardians of the Galaxy Vol. 3",
+      "image": "/images/gurdians_3.jpg",
+      "backdrop_image": "/backdrop_images/gurdians_3.jpg",
+      "release_date": "2023-05-05",
+      "watch_time": "2h 30m",
+      "genre": "Science Fiction, Adventure, Action",
+      "trailer": "https://www.youtube.com/watch?v=u3V5KDHRQvk",
+      "overview": "Peter Quill, still reeling from the loss of Gamora, must rally his team around him to defend the universe along with protecting one of their own. A mission that, if not completed successfully, could quite possibly lead to the end of the Guardians as we know them."
     }
   ]
 }

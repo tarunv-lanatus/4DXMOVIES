@@ -3,10 +3,10 @@ import {
   Box,
   IconButton,
   InputBase,
-  Link,
+  Menu,
+  MenuItem,
   Toolbar,
   Typography,
-  alpha,
 } from "@mui/material";
 import HomeIcon from "@mui/icons-material/Home";
 import EditIcon from "@mui/icons-material/Edit";
@@ -14,15 +14,16 @@ import SortIcon from "@mui/icons-material/Sort";
 import LiveTvIcon from "@mui/icons-material/LiveTv";
 import SearchIcon from "@mui/icons-material/Search";
 import styled from "@emotion/styled";
-import { NavLink } from "react-router-dom";
-import { useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useContext, useState } from "react";
+import movieDataContext from "../../context/movieDataContext";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
   borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
+  backgroundColor: "rgb(212, 212, 212)",
   "&:hover": {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
+    backgroundColor: "rgb(230, 225, 225)",
   },
   marginRight: theme.spacing(2),
   marginLeft: 0,
@@ -35,6 +36,7 @@ const Search = styled("div")(({ theme }) => ({
 
 const SearchIconWrapper = styled("div")(({ theme }) => ({
   padding: theme.spacing(0, 2),
+  color: "gray",
   height: "100%",
   position: "absolute",
   pointerEvents: "none",
@@ -58,21 +60,68 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export const Navbar = () => {
-  const [showHome, setShowHome] = useState(false);
-  const [showEdit, setShowEdit] = useState(false);
-  const [showSort, setShowSort] = useState(false);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const isMenuOpen = Boolean(anchorEl);
+
+  const navigate = useNavigate();
+  const movieValues = useContext(movieDataContext);
+
+  const sortHandler = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const searchMovieHandler = (event) => {
+    movieValues.searchMovies(event.target.value);
+  };
+
+  const handleMenuClose = () => {
+    setAnchorEl(false);
+  };
+
+  const ascendingSortHandler = () => {
+    movieValues.ascendingSortMovies();
+    setAnchorEl(false);
+  };
+
+  const descendingSortHandler = () => {
+    movieValues.descendingSortMovies();
+    setAnchorEl(false);
+  };
+
+  const renderMenu = (
+    <Menu
+      anchorEl={anchorEl}
+      anchorOrigin={{
+        vertical: "top",
+        horizontal: "right",
+      }}
+      id="primary-search-account-menu"
+      keepMounted
+      transformOrigin={{
+        vertical: "top",
+        horizontal: "right",
+      }}
+      open={isMenuOpen}
+      onClose={handleMenuClose}
+    >
+      <MenuItem onClick={ascendingSortHandler}>Ascending</MenuItem>
+      <MenuItem onClick={descendingSortHandler}>Descending</MenuItem>
+    </Menu>
+  );
+
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" sx={{ backgroundColor: "black" }}>
+      <AppBar position="static" sx={{ backgroundColor: "rgb(31, 30, 30)" }}>
         <Toolbar>
           <IconButton
             size="large"
             edge="start"
-            color="inherit"
             aria-label="open drawer"
             sx={{ mr: 2 }}
           >
-            <LiveTvIcon />
+            <NavLink to="/" style={{ color: "white" }}>
+              <LiveTvIcon />
+            </NavLink>
           </IconButton>
           <Typography
             variant="h6"
@@ -80,7 +129,9 @@ export const Navbar = () => {
             component="div"
             sx={{ display: { xs: "block", sm: "block" } }}
           >
-            4DXMOVIES
+            <NavLink to="/" style={{ color: "white", textDecoration: "none" }}>
+              4DXMOVIES
+            </NavLink>
           </Typography>
           <Search>
             <SearchIconWrapper>
@@ -88,67 +139,56 @@ export const Navbar = () => {
             </SearchIconWrapper>
             <StyledInputBase
               placeholder="Search…"
+              style={{ color: "black" }}
               inputProps={{ "aria-label": "search" }}
+              onChange={searchMovieHandler}
             />
           </Search>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "block", md: "flex" } }}>
             <IconButton
               size="large"
-              aria-label="show 4 new mails"
-              color={showHome ? "info" : "inherit"}
-              component={NavLink}
-              to="/"
+              aria-label="Go back to home"
+              color="inherit"
             >
               <HomeIcon
                 onClick={() => {
-                  setShowHome(true);
-                  setShowEdit(false);
-                  setShowSort(false);
+                  navigate("/");
                 }}
               />
             </IconButton>
             <IconButton
               size="large"
-              aria-label="show 17 new notifications"
-              color={showEdit ? "info" : "inherit"}
-              component={NavLink}
-              to="/edit"
+              aria-label="edit all movies"
+              color="inherit"
               activeStyle={{
                 fontWeight: "bold",
                 color: "black",
               }}
             >
               <EditIcon
-              onClick={() => {
-                setShowEdit(true);
-                setShowHome(false);
-                setShowSort(false);
-              }}
-               />
+                onClick={() => {
+                  navigate("/edit");
+                }}
+              />
             </IconButton>
             <IconButton
               size="large"
-              aria-label="show 17 new notifications"
-              color={showSort ? "info" : "inherit"}
-              component={NavLink}
-              to="/sort"
+              aria-label="sort all movies"
+              aria-controls="primary-search-account-menu"
+              aria-haspopup="true"
+              color="inherit"
               activeStyle={{
                 fontWeight: "bold",
                 color: "black",
               }}
             >
-              <SortIcon
-              onClick={() => {
-                setShowSort(true);
-                setShowHome(false);
-                setShowEdit(false);
-              }}
-               />
+              <SortIcon onClick={sortHandler} />
             </IconButton>
           </Box>
         </Toolbar>
       </AppBar>
+      {renderMenu}
     </Box>
   );
 };
