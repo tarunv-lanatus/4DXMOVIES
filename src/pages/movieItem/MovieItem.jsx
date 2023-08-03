@@ -7,13 +7,26 @@ import movieDataContext from "../../context/movieDataContext";
 
 export const MovieItem = () => {
   const { movie_id } = useParams();
-  const moviesValue = useContext(movieDataContext)
+  const moviesValue = useContext(movieDataContext);
   const data = moviesValue.movieData.movies.find(
     (item) => item.movie_id === Number(movie_id)
   );
 
   return (
     <Grid item xs={4} sx={{ display: "flex" }}>
+      <div
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          backgroundImage: `url(${data.backdrop_image})`,
+          backgroundSize: "cover",
+          filter: "blur(2px) brightness(0.2)", // Adjust brightness value as needed
+          zIndex: -1,
+        }}
+      />
       <div style={{ width: "5%", marginTop: "50px", textAlign: "center" }}>
         <NavLink to={`/`} style={{ color: "white" }}>
           <ArrowBackIosNewIcon style={{ fontSize: "2.5rem" }} />
