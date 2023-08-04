@@ -3,7 +3,7 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import img from "./home.jpg";
+import img from "../../home.jpg";
 import {
   Box,
   Button,
@@ -15,6 +15,7 @@ import {
   createTheme,
 } from "@mui/material";
 import { NavLink } from "react-router-dom";
+import { Scrollbars } from "react-custom-scrollbars";
 import { Navbar } from "../../components/navbar/Navbar";
 import movieDataContext from "../../context/movieDataContext";
 
@@ -24,83 +25,91 @@ export const Homepage = () => {
   const moviesValue = useContext(movieDataContext);
   return (
     <Box style={{ backgroundImage: `url(${img})` }}>
-      <ThemeProvider theme={theme}>
-        <Navbar />
-        <Container>
-          <Grid container spacing={4}>
-            {moviesValue.movieData.movies.map((list, index) => {
-              return (
-                <Grid item xs={4} key={index}>
-                  <Card
-                    sx={{
-                      width: 345,
-                      height: "91%",
-                      margin: "20px",
-                      marginTop: "30px",
-                      display: "flex",
-                      flexDirection: "column",
-                      justifyContent: "space-between",
-                      alignItems: "stretch",
-                      alignContent: "stretch",
-                      backgroundColor: "gray",
-                    }}
-                  >
-                    <CardActionArea
-                      style={{
-                        backgroundColor: "gray",
-                        cursor: "context-menu",
-                      }}
-                    >
-                      <NavLink
-                        to={`/movies/${list.movie_id}`}
-                        style={{ textDecoration: "none", color: "black" }}
-                      >
-                        <CardMedia
-                          component="img"
-                          height="250px"
-                          image={list.image}
-                        />
-                        <CardContent style={{ backgroundColor: "gray" }}>
-                          <Typography gutterBottom variant="h5" component="div">
-                            {list.title}
-                          </Typography>
-                          <Typography variant="date" color="text.secondary">
-                            Release Date: {list.release_date}
-                          </Typography>
-                        </CardContent>
-                      </NavLink>
-                    </CardActionArea>
-                    <CardActions
-                      style={{
-                        justifyContent: "flex-end",
+      <Scrollbars
+        style={{ width: "100%", height: "100vh", WebkitScrollSnapType: "both" }}
+      >
+        <ThemeProvider theme={theme}>
+          <Navbar />
+          <Container>
+            <Grid container spacing={4}>
+              {moviesValue.movieData.movies.map((list, index) => {
+                return (
+                  <Grid item xs={4} key={index}>
+                    <Card
+                      sx={{
+                        width: 345,
+                        height: "91%",
+                        margin: "20px",
+                        marginTop: "30px",
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "space-between",
+                        alignItems: "stretch",
+                        alignContent: "stretch",
                         backgroundColor: "gray",
                       }}
                     >
-                      <NavLink
-                        to={`/movies/${list.movie_id}`}
+                      <CardActionArea
                         style={{
-                          textDecoration: "none",
-                          bottom: "0px",
-                          color: "black",
+                          backgroundColor: "gray",
+                          cursor: "context-menu",
                         }}
                       >
-                        <Button
-                          size="small"
-                          textAlign="center"
-                          variant="contained"
-                          color="inherit"
+                        <NavLink
+                          to={`/movies/${list.movie_id}`}
+                          style={{ textDecoration: "none", color: "black" }}
                         >
-                          View Details
-                        </Button>
-                      </NavLink>
-                    </CardActions>
-                  </Card>
-                </Grid>
-              );
-            })}
-          </Grid>
-        </Container>
-      </ThemeProvider>
+                          <CardMedia
+                            component="img"
+                            height="250px"
+                            image={list.image}
+                          />
+                          <CardContent style={{ backgroundColor: "gray" }}>
+                            <Typography
+                              gutterBottom
+                              variant="h5"
+                              component="div"
+                            >
+                              {list.title}
+                            </Typography>
+                            <Typography variant="date" color="text.secondary">
+                              Release Date: {list.release_date}
+                            </Typography>
+                          </CardContent>
+                        </NavLink>
+                      </CardActionArea>
+                      <CardActions
+                        style={{
+                          justifyContent: "flex-end",
+                          backgroundColor: "gray",
+                        }}
+                      >
+                        <NavLink
+                          to={`/movies/${list.movie_id}`}
+                          style={{
+                            textDecoration: "none",
+                            bottom: "0px",
+                            color: "black",
+                          }}
+                        >
+                          <Button
+                            size="small"
+                            textAlign="center"
+                            variant="contained"
+                            color="inherit"
+                          >
+                            View Details
+                          </Button>
+                        </NavLink>
+                      </CardActions>
+                    </Card>
+                  </Grid>
+                );
+              })}
+            </Grid>
+          </Container>
+        </ThemeProvider>
+      </Scrollbars>
     </Box>
   );
 };

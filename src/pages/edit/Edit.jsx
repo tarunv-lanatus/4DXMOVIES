@@ -5,7 +5,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import SaveIcon from "@mui/icons-material/Save";
 import { useContext } from "react";
 import movieDataContext from "../../context/movieDataContext";
-import img from "../home/home.jpg";
+import img from "../../home.jpg";
 
 const theme = createTheme();
 
@@ -99,7 +99,7 @@ export const Editpage = () => {
       <ThemeProvider theme={theme}>
         <Navbar />
         <Box m="50px 298px">
-          <div style={{ height: 400, width: "100%" }}>
+          <Box style={{ height: 400, width: "100%" }}>
             <DataGrid
               style={{
                 backgroundColor: "rgb(142, 155, 152)",
@@ -113,8 +113,9 @@ export const Editpage = () => {
                 },
               }}
               pageSizeOptions={[5, 10]}
+              disableRowSelectionOnClick
             />
-          </div>
+          </Box>
         </Box>
       </ThemeProvider>
     </Box>

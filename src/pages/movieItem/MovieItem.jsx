@@ -1,4 +1,4 @@
-import { Button, CardMedia, Grid, Typography } from "@mui/material";
+import { Box, Button, CardMedia, Grid, Typography } from "@mui/material";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import { NavLink, useParams } from "react-router-dom";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
@@ -14,7 +14,7 @@ export const MovieItem = () => {
 
   return (
     <Grid item xs={4} sx={{ display: "flex" }}>
-      <div
+      <Box
         style={{
           position: "fixed",
           top: 0,
@@ -27,15 +27,15 @@ export const MovieItem = () => {
           zIndex: -1,
         }}
       />
-      <div style={{ width: "5%", marginTop: "50px", textAlign: "center" }}>
+      <Box style={{ width: "5%", marginTop: "50px", textAlign: "center" }}>
         <NavLink to={`/`} style={{ color: "white" }}>
           <ArrowBackIosNewIcon style={{ fontSize: "2.5rem" }} />
         </NavLink>
-      </div>
-      <div style={{ width: "25%", marginTop: "50px", marginLeft: "15px" }}>
+      </Box>
+      <Box style={{ width: "25%", marginTop: "50px", marginLeft: "15px" }}>
         <CardMedia component="img" height="500px" image={data.image} />
-      </div>
-      <div style={{ width: "70%", margin: "50px" }}>
+      </Box>
+      <Box style={{ width: "70%", margin: "50px" }}>
         <Typography
           textAlign="center"
           fontFamily="cursive"
@@ -88,7 +88,7 @@ export const MovieItem = () => {
           {data.overview}
         </Typography>
         <Grid display="flex" marginTop="20px">
-          <div style={{ width: "50%" }}>
+          <Box style={{ width: "50%" }}>
             <Typography
               textAlign="left"
               fontFamily='"Times New Roman", Times, serif'
@@ -101,8 +101,8 @@ export const MovieItem = () => {
             >
               Release Date:- {data.release_date}
             </Typography>
-          </div>
-          <div style={{ width: "50%" }}>
+          </Box>
+          <Box style={{ width: "50%" }}>
             <Typography
               textAlign="center"
               fontFamily='"Times New Roman", Times, serif'
@@ -115,10 +115,10 @@ export const MovieItem = () => {
             >
               Watch Time:- {data.watch_time}
             </Typography>
-          </div>
+          </Box>
         </Grid>
         <Grid display="flex" mt="10px">
-          <div
+          <Box
             style={{
               display: "flex",
               justifyContent: "right",
@@ -140,8 +140,8 @@ export const MovieItem = () => {
                 <PlayArrowIcon color="error" />
               </Button>
             </NavLink>
-          </div>
-          <div
+          </Box>
+          <Box
             style={{
               display: "flex",
               justifyContent: "left",
@@ -164,9 +164,9 @@ export const MovieItem = () => {
                 Edit
               </Button>
             </NavLink>
-          </div>
+          </Box>
         </Grid>
-      </div>
+      </Box>
     </Grid>
   );
 };

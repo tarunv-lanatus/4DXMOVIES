@@ -17,6 +17,7 @@ import styled from "@emotion/styled";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import movieDataContext from "../../context/movieDataContext";
+import img from "../../home.jpg";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -98,7 +99,7 @@ export const Navbar = () => {
       keepMounted
       transformOrigin={{
         vertical: "top",
-        horizontal: "right",
+        horizontal: "left",
       }}
       open={isMenuOpen}
       onClose={handleMenuClose}
@@ -110,7 +111,10 @@ export const Navbar = () => {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" sx={{ backgroundColor: "rgb(31, 30, 30)" }}>
+      <AppBar
+        position="static"
+        sx={{ backgroundImage: `url(${img})`}}
+      >
         <Toolbar>
           <IconButton
             size="large"
@@ -119,7 +123,7 @@ export const Navbar = () => {
             sx={{ mr: 2 }}
           >
             <NavLink to="/" style={{ color: "white" }}>
-              <LiveTvIcon />
+              <LiveTvIcon style={{fontSize:'35px'}} />
             </NavLink>
           </IconButton>
           <Typography
@@ -143,7 +147,6 @@ export const Navbar = () => {
               onChange={searchMovieHandler}
             />
           </Search>
-          <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "block", md: "flex" } }}>
             <IconButton
               size="large"
@@ -154,6 +157,7 @@ export const Navbar = () => {
                 onClick={() => {
                   navigate("/");
                 }}
+                style={{ fontSize: "35px" }}
               />
             </IconButton>
             <IconButton
@@ -169,6 +173,7 @@ export const Navbar = () => {
                 onClick={() => {
                   navigate("/edit");
                 }}
+                style={{ fontSize: "35px" }}
               />
             </IconButton>
             <IconButton
@@ -182,7 +187,7 @@ export const Navbar = () => {
                 color: "black",
               }}
             >
-              <SortIcon onClick={sortHandler} />
+              <SortIcon onClick={sortHandler} style={{ fontSize: "35px" }} />
             </IconButton>
           </Box>
         </Toolbar>
