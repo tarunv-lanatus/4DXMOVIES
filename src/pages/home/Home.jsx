@@ -3,7 +3,6 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import img from "../../home.jpg";
 import {
   Box,
   Button,
@@ -24,7 +23,7 @@ const theme = createTheme();
 export const Homepage = () => {
   const moviesValue = useContext(movieDataContext);
   return (
-    <Box style={{ backgroundImage: `url(${img})` }}>
+    <Box>
       <Scrollbars
         style={{ width: "100%", height: "100vh", WebkitScrollSnapType: "both" }}
       >

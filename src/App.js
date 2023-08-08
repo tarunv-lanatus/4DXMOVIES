@@ -7,20 +7,27 @@ import { MovieItem } from "./pages/movieItem/MovieItem";
 import { EditById } from "./pages/editById/EditById";
 import { MovieData } from "./context/MovieData";
 import { ErrorPage } from "./pages/errorPage/Error";
+import { ParticlesBackground } from "./components/particles/ParticlesBackground";
+import { Box } from "@mui/material";
 
 function App() {
   return (
-    <MovieData>
-      <Router>
-        <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route path="/movies/:movie_id" element={<MovieItem />} />
-          <Route path="/edit/:movie_id" element={<EditById />} />
-          <Route path="/edit" element={<Editpage />} />
-          <Route path="*" element={<ErrorPage />} />
-        </Routes>
-      </Router>
-    </MovieData>
+    <Box className="app">
+      <ParticlesBackground />
+      <Box className="content">
+        <MovieData>
+          <Router>
+            <Routes>
+              <Route path="/" element={<Homepage />} />
+              <Route path="/movies/:movie_id" element={<MovieItem />} />
+              <Route path="/edit/:movie_id" element={<EditById />} />
+              <Route path="/edit" element={<Editpage />} />
+              <Route path="*" element={<ErrorPage />} />
+            </Routes>
+          </Router>
+        </MovieData>
+      </Box>
+    </Box>
   );
 }
 

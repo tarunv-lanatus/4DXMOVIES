@@ -5,7 +5,6 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import SaveIcon from "@mui/icons-material/Save";
 import { useContext } from "react";
 import movieDataContext from "../../context/movieDataContext";
-import img from "../../home.jpg";
 
 const theme = createTheme();
 
@@ -95,7 +94,7 @@ export const Editpage = () => {
   });
 
   return (
-    <Box style={{ backgroundImage: `url(${img})`, height: "611px" }}>
+    <Box style={{ height: "611px" }}>
       <ThemeProvider theme={theme}>
         <Navbar />
         <Box m="50px 298px">

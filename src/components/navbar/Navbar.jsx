@@ -17,7 +17,6 @@ import styled from "@emotion/styled";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import movieDataContext from "../../context/movieDataContext";
-import img from "../../home.jpg";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -113,7 +112,7 @@ export const Navbar = () => {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar
         position="static"
-        sx={{ backgroundImage: `url(${img})`}}
+        sx={{ backgroundColor: "rgb(31, 30, 30)", zIndex: -1 }}
       >
         <Toolbar>
           <IconButton
@@ -123,7 +122,7 @@ export const Navbar = () => {
             sx={{ mr: 2 }}
           >
             <NavLink to="/" style={{ color: "white" }}>
-              <LiveTvIcon style={{fontSize:'35px'}} />
+              <LiveTvIcon style={{ fontSize: "35px" }} />
             </NavLink>
           </IconButton>
           <Typography
